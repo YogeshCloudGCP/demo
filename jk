@@ -1,11 +1,11 @@
 pipeline {
 	option {
-		buildDiscarder(logRotator(numToKeepStr: '5', artifactnumToKeepStr: '5' ))
+		buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5' ))
 	}
 	agent any
 
 	tools {
-		maven 'maven 3.9.5'
+		maven 'maven-3.9.5'
 	}
 	stages {
 		stage('Code Compilation') {
@@ -26,7 +26,7 @@ pipeline {
 			steps {
 				echo  'Creating War Artifact'
 				sh 'mvn clean package'
-				echo 'Creating War Artifact is complited.'
+				echo 'Creating War Artifact is completed.'
 			}
 		}
 	}
