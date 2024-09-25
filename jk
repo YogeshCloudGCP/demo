@@ -1,0 +1,33 @@
+Pipeline {
+	option {
+		buildDiscarder(logRotator(numToKeepStr: '5', artifactnumToKeepStr: '5' ))
+	}
+	agent any
+
+	tools {
+		maven 'maven 3.9.5'
+	}
+	stages {
+		stage('Code Compilation') {
+			steps {
+				echo  'Code Compilation is in Progress !'
+				sh 'mvn clean compile'
+				echo 'Code compilation is Completed and Successful!'
+			}
+		}
+		stage('Code QA Execution') {
+			steps {
+				echo  'Junit test case checks is in Progress !'
+				sh 'mvn clean test'
+				echo 'Junit test case checks is Completed and Successful!'
+			}
+		}
+		stage('Code package') {
+			steps {
+				echo  'Creating War Artifact'
+				sh 'mvn clean package'
+				echo 'Creating War Artifact is complited.'
+			}
+		}
+	}
+}
