@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class demoA {
     @GetMapping("/demoA")
-    public String getData() {return "Hi Guys this is my 1st project in DEVOPS - Yogesh Trivedi" ; }
+    public String getData() {return "25lap package  Hi Guys this is my 1st project in DEVOPS - Yogesh Trivedi" ; }
 }
