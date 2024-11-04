@@ -50,7 +50,7 @@ pipeline {
                     withDockerRegistry([credentialsId: 'ecr:ap-south-1:ecr-credentials', url: "https://232265303811.dkr.ecr.ap-south-1.amazonaws.com"]) {
                         sh """
                         echo "List the Docker images present locally"
-                        docker image  // List local Docker images
+
                         echo "Tagging the Docker Image: In Progress"
                         docker tag cicd_ygt:latest 232265303811.dkr.ecr.ap-south-1.amazonaws.com/cicd_ygt:latest
                         echo "Tagging the Docker Image: Completed"
