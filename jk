@@ -37,7 +37,7 @@ pipeline {
                         echo 'Completed Building Docker Image'
                     }
                 }
-
+     }
                 stage('Docker Image Push to Amazon ECR') {
                     steps {
                         script {
