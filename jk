@@ -55,7 +55,7 @@ pipeline {
                         docker tag cicd_ygt:latest 232265303811.dkr.ecr.ap-south-1.amazonaws.com/cicd_ygt:latest
                         echo "Tagging the Docker Image: Completed"
                         echo "Push Docker Image to ECR: In Progress"
-                        docker push 232265303811.dkr.ecr.ap-south-1.amazonaws.com/cicd_ygt:latest  // Push Docker image to ECR
+                        docker push 232265303811.dkr.ecr.ap-south-1.amazonaws.com/cicd_ygt:latest1  // Push Docker image to ECR
                         echo "Push Docker Image to ECR: Completed"
                         """
                     }
