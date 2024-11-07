@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'Code Compilation is in Progress!'
                 sh 'mvn clean compile'  // Execute Maven clean compile
-                echo 'Code compilation is Completed and Successful!'
+                echo 'Code Compilation is Completed and Successful!'
             }
         }
         stage('Code QA Execution') {
@@ -27,10 +27,19 @@ pipeline {
             steps {
                 echo 'Creating War Artifact'
                 sh 'mvn clean package'  // Execute Maven clean package
-                echo 'Creating War Artifact is completed.'
+                echo 'War Artifact Creation Completed.'
             }
         }
-
+    }
+    post {
+        success {
+            echo 'Build and tests were successful!'
+        }
+        failure {
+            echo 'Build failed. Please check the logs for errors.'
+        }
+        always {
+            echo 'Cleaning up and preparing for the next build.'
         }
     }
 }
