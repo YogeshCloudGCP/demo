@@ -52,7 +52,7 @@ pipeline {
                         echo "List the Docker images present locally"
                         docker images
                         echo "Tagging the Docker Image: In Progress"
-                        docker tag cicd_ygt:latest 232265303811.dkr.ecr.ap-south-1.amazonaws.com/cicd_ygt:latest
+                        sh ' docker tag cicd_ygt:latest 232265303811.dkr.ecr.ap-south-1.amazonaws.com/cicd_ygt:latest '
                         echo "Tagging the Docker Image: Completed"
                         echo "Push Docker Image to ECR: In Progress"
                         docker push 232265303811.dkr.ecr.ap-south-1.amazonaws.com/cicd_ygt:latest  // Push Docker image to ECR
