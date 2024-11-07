@@ -30,37 +30,7 @@ pipeline {
                 echo 'Creating War Artifact is completed.'
             }
         }
-        stage('Building & Tag Docker Image') {
-            steps {
-                echo 'Starting Building Docker Image'
-                sh 'docker build -t cicd_ygt:latest .'  // Build Docker image
-                echo 'Completed Building Docker Image'
-            }
-        }
-        stage('Docker Image Scanning') {
-                    steps {
-                        echo 'Docker Image Scanning Started'
-                        sh 'java -version'
-                        echo 'Docker Image Scanning Started'
-                    }
-                }
-        stage('Docker Image Push to Amazon ECR') {
-            steps {
-                script {
-                    withDockerRegistry([credentialsId: 'ecr:ap-south-1:ecr-credentials', url: "https://232265303811.dkr.ecr.ap-south-1.amazonaws.com"]) {
-                        sh """
-                        echo "List the Docker images present locally"
-                        docker images
-                        echo "Tagging the Docker Image: In Progress"
-                        sh ' docker tag cicd_ygt:latest 232265303811.dkr.ecr.ap-south-1.amazonaws.com/cicd_ygt:latest '
-                        echo "Tagging the Docker Image: Completed"
-                        echo "Push Docker Image to ECR: In Progress"
-                        docker push 232265303811.dkr.ecr.ap-south-1.amazonaws.com/cicd_ygt:latest  // Push Docker image to ECR
-                        echo "Push Docker Image to ECR: Completed"
-                        """
-                    }
-                }
-            }
+
         }
     }
 }
